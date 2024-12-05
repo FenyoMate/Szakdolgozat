@@ -1,0 +1,43 @@
+<div class="settings-container">
+    <h1>Settings</h1>
+    <h2>Username: {{username}}</h2>
+    <div class="ch-password">
+        <h2>Change password</h2>
+        <form (ngSubmit)="changePassword()">
+            <div>
+                <input type="password" placeholder="Old password" name="oldPassword" [(ngModel)]="oldPassword" required>
+            </div>
+            <div>
+                <input type="password" placeholder="New password" name="newPassword" [(ngModel)]="newPassword" required>
+            </div>
+            <div>
+                <input type="password" placeholder="Confirm new password" name="confirmNewPassword" [(ngModel)]="confirmNewPassword" required>
+            </div>
+            <div class="buttons">
+                <button mat-raised-button color="primary" type="submit" class="change-password">Change password</button>
+            </div>
+        </form>
+    </div>
+    <div class="ch-permissions" *ngIf="isAdmin">
+        <h2>Change permissions</h2>
+      <!-- <ng-template *ngFor="let user of users">
+            <div class="user">
+                <span>{{ user.username }}</span>
+                <mat-slide-toggle [(ngModel)]="user.isAdmin" (change)="changePermissions(user)"></mat-slide-toggle>
+            </div>
+        </ng-template> -->
+    </div>
+  <div>
+    <h2>Usage statistics</h2>
+
+    <div class="statistics">
+      <h3>Usage statistics</h3>
+      <div>
+        <p>Chat costs: {{ statistics.total_chat_cost }}</p>
+        <p>Tuning costs: {{ statistics.total_tuning_cost }}</p>
+        <p>Dataset costs: {{ statistics.total_dataset_cost }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

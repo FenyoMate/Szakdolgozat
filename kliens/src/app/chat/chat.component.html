@@ -1,0 +1,11 @@
+<div class="chat-cards">
+  <mat-card *ngFor="let chat of chats | async" class="chat-card">
+    <mat-card-header>
+      <h3>{{ chat.title }}</h3>
+    </mat-card-header>
+    <mat-card-footer>
+      <button mat-button class="edit-link" routerLink="/chat/{{ chat.id }}">Modify</button>
+      <button mat-button class="edit-link" (click)="deleteChat(chat.id)">Delete</button>
+    </mat-card-footer>
+  </mat-card>
+</div>

@@ -1,0 +1,80 @@
+<div class="main-container">
+      <div class="context-container">
+        <div>
+          <p>Model name</p>
+          <input type="text" class="context-title" placeholder="Add model name..." [(ngModel)]="modelName"/>
+          <p class="model-id-text">{{modelId}}</p>
+        </div>
+        <div>
+          <p>Add data for data set generation</p>
+          <textarea class="context-input" placeholder="Add data here..." [(ngModel)]="dataText"></textarea>
+        </div>
+        <div>
+          <label for="exampleQt">Examples/chunks: </label>
+          <input id="exampleQt" type="number" class="context-amount" [(ngModel)]="exampleAmount"/>
+          <br>
+          <label for="creativity">Add creativity on 1-10 scale: </label>
+          <input id="creativity" type="number" class="context-amount" [(ngModel)]="creativity"/>
+          <br>
+          <label for="size">Adjust the size of the data chunks (1 paragraph = 250-280 token) </label>
+          <input id="size" type="number" class="context-amount" [(ngModel)]="chunkSize"/>
+        </div>
+        <div class="context-buttons">
+          <input type="file" class="context-file" (change)="onFileSelected($event)" accept=".txt,.json,.csv,.xlsx,.xls,.docx,.pdf"/>
+          <button mat-raised-button color="primary" class="context-button" (click)="generateDataset(dataText, creativity, exampleAmount)">
+            Create data sets
+          </button>
+        </div>
+        <div class="info">
+          <p>
+            Adjust the example quantity according to the avarage of how many question-answer pair can give you enough information to describe one paragraph in your context.
+            Creativity is to measure the model generation creativity. The higher the number, the more creative the model will be.
+            Adjust the chunk size according to which purpose you want to fine-tune. If you want to fine-tune for a chatbot, use smaller chunks. If you want to fine-tune for a direct purpose, like report creating, user larger chunks.
+            The example quantity and chunk size properties are close related to each other, if lower the size there will be more examples and therefore more tokens spent.
+          </p>
+        </div>
+        <ng-container *ngIf="isLoading; else datasetStats">
+          <img src="assets/loading.gif" alt="Loading..." width="100" height="100"/>
+        </ng-container>
+        <ng-template #datasetStats>
+          <div class="output-details">
+            <label for="model-name">Request token costs:</label>
+            <p id="model-name" class="output-name">{{ statistics.sum_cost_of_requests }}</p>
+            <label for="model-accuracy">Response token costs:</label>
+            <p id="model-accuracy" class="output-accuracy">{{ statistics.sum_cost_of_responses }}</p>
+            <label for="model-loss">Total tokens spent:</label>
+            <p id="model-loss" class="output-loss">{{ statistics.sum_total_tokens }}</p>
+            <label for="costs">Generated examples:</label>
+            <p id="costs" class="output-costs">{{ statistics.sum_generated_examples }}</p>
+          </div>
+        </ng-template>
+    </div>
+
+    <div class="dataset-container">
+      <div class="datasets">
+        <ng-container *ngIf="isLoading; else datasetList">
+          <img src="assets/loading.gif" alt="Loading..." width="100" height="100"/>
+        </ng-container>
+        <ng-template #datasetList>
+          <ul class="dataset-list" *ngFor="let dataset of dataSets">
+            <ul *ngFor="let message of dataset.messages">
+              <li id="role">Role: {{message.role}}</li>
+              <li id="content">Content: {{message.content}}</li>
+            </ul>
+          </ul>
+        </ng-template>
+      </div>
+
+      <ng-container *ngIf="isTuning">
+        <img src="assets/loading.gif" alt="Loading..." width="100" height="100"/>
+      </ng-container>
+      <div class="option-button-table">
+        <button mat-raised-button color="primary" class="fine-tune-button" (click)="sendToFineTune(dataSets)">
+          Fine tune
+        </button>
+        <button mat-raised-button color="primary" class="fine-tune-button" (click)="downloadCreatedDataset(dataSets)">
+          Download dataset
+        </button>
+      </div>
+    </div>
+</div>

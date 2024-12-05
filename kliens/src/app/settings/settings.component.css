@@ -1,0 +1,116 @@
+/* General settings container styling */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background-color: #F2F1EC;
+  color: #365B6D;
+  border-radius: 12px;
+  width: 50%;
+}
+
+/* Headings styling */
+.settings-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #365B6D;
+}
+
+.settings-container h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #365B6D;
+  margin-bottom: 10px;
+}
+
+/* Change password section */
+.ch-password div {
+  margin-bottom: 10px;
+}
+
+.ch-password input[type="password"] {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #365B6D;
+}
+
+.buttons .change-password {
+  background-color: #365B6D;
+  color: #F2F1EC;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons .change-password:hover {
+
+  background-color: #F2F1EC;
+  color: #365B6D;
+}
+
+.api-key .buttons {
+  background-color: #365B6D;
+  color: #F2F1EC;
+  border-radius: 4px;
+}
+
+.api-key .buttons:hover {
+
+  background-color: #F2F1EC;
+  color: #365B6D;
+
+}
+
+/* Change permissions section */
+.ch-permissions .user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.ch-permissions .user span {
+  font-size: 16px;
+  color: #365B6D;
+}
+
+.statistics p {
+  font-size: 16px;
+  color: #365B6D;
+  margin-bottom: 5px;
+}
+
+.statistics h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #365B6D;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .settings-container {
+    padding: 10px;
+  }
+
+  .settings-container h1 {
+    font-size: 20px;
+  }
+
+  .settings-container h2 {
+    font-size: 18px;
+  }
+
+  .ch-password input[type="password"]{
+    font-size: 14px;
+  }
+
+  .buttons .change-password {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

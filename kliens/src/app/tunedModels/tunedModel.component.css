@@ -1,0 +1,40 @@
+.chat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.chat-card {
+  background-color: white;
+}
+
+.new-context-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.new-model-button {
+  background-color: #365B6D;
+  color: #F2F1EC;
+  font-size: 32px;
+  border-radius: 16px;
+}
+
+.edit-link{
+  margin-top: 12px;
+  margin-bottom: 8px;
+  color: black;
+  font-weight: bold;
+}
+
+.edit-link:hover{
+  color: white;
+  background-color: #365B6D;
+}
+
+.new-model-button:hover{
+  background-color: black;
+}

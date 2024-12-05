@@ -1,0 +1,26 @@
+
+/* Custom styles for the overall application */
+body {
+  background-color: #F2F1EC;
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom styles for the toolbar */
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Space between the title and the menu items */
+.spacer {
+  flex: 1;
+}
+
+h1{
+  color: #365B6D;
+}
+
+

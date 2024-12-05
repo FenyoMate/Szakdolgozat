@@ -1,0 +1,32 @@
+<div class="context-selector">
+  <mat-menu #dropdownMenu="matMenu">
+    <button mat-menu-item *ngFor="let model of models" (click)="selectModel(model.model_name, model.model_id)">
+      {{ model.model_name }}
+    </button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="dropdownMenu" class="context-selector">
+    {{ selectedModel }} <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+</div>
+
+<div class="chat-container" >
+  <div class="qa-container" *ngFor="let i of messages?.questions; let idx = index">
+    <div class="message-container">
+      <div class="profile-icon"><mat-icon>person</mat-icon></div>
+      <div class="message-box">{{ messages.questions[idx] }}</div>
+      <div class="phantom-profile"></div>
+    </div>
+
+    <div class="message-container">
+      <div class="phantom-profile"></div>
+      <app-graph-draw class="graph-box" *ngIf="graphs[idx]!=''" [graph]="graphs[idx]"></app-graph-draw>
+      <div class="message-box" [innerHTML]="renderMarkdown(messages.answers[idx])"></div>
+      <div class="profile-icon"><mat-icon>smart_toy</mat-icon></div>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <input type="text" class="message-input" placeholder="Type your message here..." [(ngModel)]="newQuestion">
+    <button mat-icon-button class="send-button" (click)="sendMessage(newQuestion)" (keydown.enter)="sendMessage(newQuestion)"><mat-icon>send</mat-icon></button>
+  </div>
+</div>

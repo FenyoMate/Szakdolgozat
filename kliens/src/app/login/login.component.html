@@ -1,0 +1,15 @@
+<div>
+  <form>
+    <h1>Login</h1>
+    <div>
+      <input placeholder="Username" name="username" [(ngModel)]="username" required>
+    </div>
+    <div>
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required>
+    </div>
+    <div class="buttons">
+      <button type="submit" (click)="login()">Login</button>
+      <button type="button" class="signup" routerLink="/signup">Sign up</button>
+    </div>
+  </form>
+</div>

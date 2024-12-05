@@ -1,0 +1,20 @@
+<div>
+  <form>
+    <h1>Sign up</h1>
+    <div>
+      <input placeholder="Email" name="email" [(ngModel)]="email" required>
+    </div>
+    <div>
+      <input placeholder="Username" name="username" [(ngModel)]="username" required>
+    </div>
+    <div>
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required>
+    </div>
+    <div>
+      <input type="password" placeholder="Confirm Password" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+    </div>
+    <div class="buttons">
+      <button type="button" class="signup" routerLink="/signup" (click)="signUp()">Sign Up</button>
+    </div>
+  </form>
+</div>

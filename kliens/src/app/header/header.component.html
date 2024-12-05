@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span class="title">Petra</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="createNewChat()" *ngIf="isAuthenticated">
+    <mat-icon>add_comment</mat-icon>
+  </button>
+  <button mat-button routerLink="/chat" class="menu-button" *ngIf="isAuthenticated">Chats</button>
+  <button mat-button routerLink="/model" class="menu-button" *ngIf="isAuthenticated">Models</button>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button class="menu-button" mat-menu-item routerLink="/login" *ngIf="!isAuthenticated" >Login</button>
+    <button class="menu-button" mat-menu-item routerLink="/signup" *ngIf="!isAuthenticated">Sign Up</button>
+    <button class="menu-button" mat-menu-item routerLink="/settings/{{uid}}" *ngIf="isAuthenticated">Settings</button>
+    <button class="menu-button" mat-menu-item routerLink="/login" *ngIf="isAuthenticated" (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>
+

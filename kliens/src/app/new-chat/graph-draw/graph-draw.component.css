@@ -1,0 +1,10 @@
+.mermaid{
+  min-width: 400px;
+  min-height: 400px;
+  margin: 10px 0;
+  overflow: auto;
+}
+.mermaid:hover{
+  cursor: zoom-in;
+}
+

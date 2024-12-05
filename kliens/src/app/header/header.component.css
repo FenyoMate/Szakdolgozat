@@ -1,0 +1,41 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: #365B6D;
+  color: #F2F1EC;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+mat-icon{
+  color: #F2F1EC;
+  font-size: 24px;
+}
+
+mat-icon:hover{
+  color: black;
+}
+
+.menu-button{
+  color: #365B6D;
+  font-size: 18px;
+}
+
+.menu-button:hover{
+  color: black;
+}
+
+button{
+  color: white;
+  font-size: 18px;
+}
+
+button:hover{
+  color: #F2F1EC;
+}
+
+.title:hover{
+  color: black;
+}

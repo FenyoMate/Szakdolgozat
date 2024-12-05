@@ -1,0 +1,11 @@
+<div class="chat-cards">
+  <mat-card class="chat-card" *ngFor="let model of models | async">
+    <mat-card-header>
+      <h3>{{ model.model_name }}</h3>
+    </mat-card-header>
+    <mat-card-footer>
+      <button mat-button class="edit-link" routerLink="/model/{{model.id}}">Show</button>
+    </mat-card-footer>
+  </mat-card>
+</div>
+
